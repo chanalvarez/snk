@@ -1,0 +1,246 @@
+<!doctype html>
+{% load static %}
+<style>
+   
+	input{
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		box-sizing: border-box;
+	}
+
+	input::placeholder {
+	  color: #d3d3d3;
+	}
+
+	.submit{
+		background-color: #6BA3E8;
+	}
+
+	.center-column{
+		width: 1130px;
+		margin: 20px auto;
+		padding:20px;
+		background-color: white;
+		border-radius: 3px;
+		box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+	}
+
+	.item-row{
+		background-color: #747474;
+		 margin: 10px;
+		padding: 30px;
+		border-radius: 3px;
+		
+		font-size: 16px;
+		box-shadow: 0px -1px 10px -4px rgba(0,0,0,0.75);
+	}
+
+	.btn-danger{
+		background-color: #ffae19;
+		border-color: #e59400;
+	}
+	.navbar-inner {
+    background-color: #fff;
+}
+	.nav.navbar-nav.navbar-right li a {
+    color: blue;
+}	
+.searchbar{
+    margin-bottom: 10px;
+    margin-top: 15px;
+    height: 60px;
+    background-color: #353b48;
+    border-radius: 30px;
+    padding: 10px;
+    }
+
+    .search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color:transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+    font-family: 'Courier New', Courier, monospace;
+    }
+
+    .searchbar:hover > .search_input{
+    padding: 0 10px;
+    width: 450px;
+    caret-color:red;    
+    transition: width 0.4s linear;
+    }
+
+    .searchbar:hover > .search_icon{
+    background: white;
+    color: #e74c3c;
+    }
+
+    .search_icon{
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+    text-decoration:none;
+    }
+    .hello-msg{
+      font-size: 18px;
+      color: #000;
+      margin-right: 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 600;
+    }
+
+    .navbar-brand {
+      font-family: 'Courier New', Courier, monospace;
+      color: #fff;
+      font-size: 30px !important; 
+      font-weight: 700;
+      padding-right: 10px;
+      margin-right: 0px !important;
+    }
+
+    .nav-link {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 18px !important;
+      color: #000;
+      padding: 10px 25px !important;
+      font-weight: 600;
+    }
+
+    .logo-img-sneak {
+      border-radius: 5px;
+      width: 50%;
+    }
+
+    .logo-sneak-div {
+      margin: auto;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      color: #fff;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+	
+</style>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
+    <nav class="navbar navbar-expand-lg navbar-inner ">
+  <a class="navbar-brand">Sneak</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="adminpage">Shop <span class="sr-only">(current)</span></a>
+      </li>
+      
+       <li class="nav-item">
+        <a class="nav-link" href="{% url 'ap' %} ">Add a Shoe</a>
+      </li>
+    </ul>
+  </div>
+  <span class = "hello-msg">Hello, {{request.user}} </span>
+  <span><a class = "hello-msg" href = "{% url 'logoutUser' %}">Logout </a></span>
+</nav>
+
+<body style="background-color:white;">
+  </nav>
+    <form class = "form-inline my-2 my-lg-0" action = "{% url 'search'%}">
+<div class="container h-10" >
+      <div class="d-flex justify-content-center h-10">
+        <div class="searchbar">
+          <input class="search_input" type="text" name="search" placeholder="Search...">
+          <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+        </div>
+      </div>
+    </div>
+</form>
+
+ <div class = "center-column">
+      
+    <div class = "row">
+    
+         {% for acc in playlist %}
+        <div class = "item-row">
+	       
+        
+			
+            
+           
+            
+          
+     
+     <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+         <img src="{{acc.pic.url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{acc}}</h5>
+        <p class="card-text">{{acc.description}}</p>
+         <p class="card-text">Brand : {{acc.brand.Name}}</p>
+         <p class="card-text">Price : ₱{{acc.prize}}</p>
+           <p class="card-text">Size : {{acc.size}}</p>
+         
+        
+
+        
+               <a  type = "submit" class = "btn btn-sm btn-danger" href="{% url 'delete' acc.id %}"> remove shoe </a>
+           
+
+       </div>
+        </div>  
+          
+        
+        </div>
+
+          
+
+
+    {% endfor%}
+
+    {%block body%}
+
+
+
+    {% endblock body %}
+  </div>
+ </div>
+
+    
+   
+  </body>
+</html>

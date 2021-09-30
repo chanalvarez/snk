@@ -1,0 +1,47 @@
+{% extends  "base.html" %}
+{% load static %}
+{% block body %}
+
+ <div class = "center-column">
+      
+    <div class = "row">
+    
+         {% for acc in playlist %}
+        <div class = "item-row">
+	       
+        
+			
+            
+           
+            
+          
+     
+     <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        <img src="{{acc.pic.url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{acc}}</h5>
+         <p class="card-text">Brand : {{acc.brand.Name}}</p>
+         <p class="card-text">Price : ₱{{acc.prize}}</p>
+           <p class="card-text">Size : {{acc.size}}</p>
+         
+          
+
+        
+               <a  type = "submit" class = "btn btn-sm btn-info" href="{% url 'UpdateFavor' request.user.account.id acc.id  %}"> Add to Cart </a>
+           
+
+       </div>
+        </div>  
+          
+        
+        </div>
+
+          
+
+
+    {% endfor%}
+  </div>
+ </div>
+
+
+ {% endblock%}

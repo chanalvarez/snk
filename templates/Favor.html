@@ -1,0 +1,48 @@
+  {% extends 'base.html' %}
+{% load static %}
+
+
+{% block body %}
+
+{% csrf_token %}
+ <div class = "center-column">
+    <div class = "row">
+    
+         {% for acc in items %}
+            
+                   <div class = "item-row">
+	       
+        
+			
+            
+           
+            
+           </head>
+         <body>
+      <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        <img src="{{acc.pic.url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{acc}}</h5>
+     
+   
+         <p class="card-text">Brand : {{acc.brand.Name}}</p>
+         <p class="card-text">Price : ₱{{acc.prize}}</p>
+           <p class="card-text">Size : {{acc.size}}</p>
+             <p class="card-text">Delivered : {{acc.status}}</p>
+          <a  type = "submit" class = "btn btn-sm btn-info" href="{% url 'RemoveFavor' request.user.account.id acc.id %}"> Cancel Order </a>
+     
+     
+         
+           
+       </div>
+        </div>  
+        </div>
+         
+     
+
+
+         {% endfor%}
+  </div>
+ </div>
+
+ {% endblock%}

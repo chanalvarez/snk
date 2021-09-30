@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+    
+    
+    <form action = "" method = "POST">
+        {% csrf_token %}
+       <textarea id="textbox" name="answer" rows="4" cols="50">
+def starthere():
+    return "your code"
+starthere()
+
+       </textarea>
+    
+      <input type="submit" value="OK">
+    </form>
+    
+    
+    <textarea id="textarea12" name="answer" rows="4" cols="50">
+    {{answer}}
+    </textarea>
+    <script>
+        document.getElementById('textbox').addEventListener('keydown', function(e) {
+  if (e.key == 'Tab') {
+    e.preventDefault();
+    var start = this.selectionStart;
+    var end = this.selectionEnd;
+
+    // set textarea value to: text before caret + tab + text after caret
+    this.value = this.value.substring(0, start) +
+      "\t" + this.value.substring(end);
+
+    // put caret at right position again
+    this.selectionStart =
+      this.selectionEnd = start + 1;
+  }
+});
+    </script>
+</body>
+</html>
